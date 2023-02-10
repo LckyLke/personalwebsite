@@ -1,9 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -13,4 +15,14 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+
+.back-to-home-button {
+  @apply bg-gradient-to-b from-purple-500 to-indigo-600;
+  @apply px-4 py-2 font-bold text-white rounded-full shadow-lg;
+}
+
+.back-to-home-button:hover {
+  @apply shadow-xl;
 }
