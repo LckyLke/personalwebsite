@@ -12,6 +12,7 @@ const LearnCards: React.FC<{ data: any }> = (data) => {
   const [cardSelection, setCardSelection] = useState([]);
   const selectedAmount = useUserStore((state) => state.selectedAmount);
   const ratings = useUserStore((state) => state.ratings);
+  const [showUsername, setShowUsername] = useState(true);
 
   const createCardSelection = (ratings = [], amount = 0) => {
     if (!Array.isArray(ratings) || ratings.length === 0) {
@@ -65,7 +66,31 @@ const LearnCards: React.FC<{ data: any }> = (data) => {
 
   return (
     <div>
-      <div>{"You are logged in as " + user}</div>
+      <div className="flex justify-between">
+        {showUsername && (
+          <div id="username">{"You are logged in as " + user}</div>
+        )}
+        <button
+          className="p-2 text-gray-500 transition duration-150 ease-in-out rounded-full hover:text-gray-600"
+          onClick={() => setShowUsername(!showUsername)}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
       <div>
         {cards != null && cards.length != 0 ? (
           cardSelection.length == 0 || mode == "lobby" ? (

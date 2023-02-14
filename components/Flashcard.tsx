@@ -150,7 +150,7 @@ const Flashcard: React.FC<Props> = ({ quit, cards }) => {
           <span></span>
           <RatingButton
             onClick={() => {
-              setRating(cards[currentCard], 2);
+              setRating(cards[currentCard], 1);
               handleAnswer(1);
             }}
             text="poor"
@@ -159,7 +159,7 @@ const Flashcard: React.FC<Props> = ({ quit, cards }) => {
           />
           <RatingButton
             onClick={() => {
-              setRating(cards[currentCard], 1);
+              setRating(cards[currentCard], 0);
               handleAnswer(2);
             }}
             text="fair"
